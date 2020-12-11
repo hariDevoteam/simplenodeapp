@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [12 , 14]
+        node: [12 ]
     steps:
       - name: My first step
         env:
@@ -16,4 +16,7 @@ jobs:
           MIDDLE_NAME: Bahadur
           LAST_NAME: Khadka
         run: echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+      - name: my second job
+        if: success()
+        run: echo "The previous step as finished successfully"
 
