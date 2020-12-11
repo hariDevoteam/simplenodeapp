@@ -1,19 +1,19 @@
-name: build
-on: push
+# steps.yml
+name: steps
+on:
+  push:
+    branches: [ master ]
 jobs:
-    build:
-       name: my job 
-       runs-on : {{matrix.os}}
-       strategy:
-           matrix:
-            os: [ubuntu-latest]
-            node: [12 , 14 ]
+  run:
+    runs-on: ubuntu-latest
     steps:
-      - name: My first step
-        env:
-          MY_VAR: Hi there! My name is
-          FIRST_NAME: Chad
-          MIDDLE_NAME: Michael
-          LAST_NAME: Crowell
-         run: echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
+    - name: My first step
+      env:
+        MY_VAR: Hi there! My name is
+        FIRST_NAME: Chad
+        MIDDLE_NAME: Michael
+        LAST_NAME: Crowell
+      run: |
+        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+
     
